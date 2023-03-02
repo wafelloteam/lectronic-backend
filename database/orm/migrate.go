@@ -26,11 +26,11 @@ func migrate(cmd *cobra.Command, args []string) error {
 	}
 
 	if migrationDown {
-		return db.Migrator().DropTable(&model.User{})
+		return db.Migrator().DropTable(&model.User{}, &model.Product{}, &model.History{}, &model.Cart{})
 	}
 
 	if migrationUp {
-		return db.AutoMigrate(&model.User{})
+		return db.AutoMigrate(&model.User{}, &model.Product{}, &model.History{}, &model.Cart{})
 	}
 
 	return nil
