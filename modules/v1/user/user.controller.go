@@ -19,6 +19,11 @@ func NewController(service interfaces.UserServiceIF) *user_controller {
 
 }
 
+func (c *user_controller) GetById(w http.ResponseWriter, r *http.Request) {
+	id := r.Context().Value("user")
+	c.service.GetById(id.(string)).Send(w)
+}
+
 func (c *user_controller) GetAll(w http.ResponseWriter, r *http.Request) {
 	result := c.service.GetAll()
 	result.Send(w)
@@ -42,11 +47,6 @@ func (c *user_controller) Add(w http.ResponseWriter, r *http.Request) {
 	result := c.service.Add(&data)
 	result.Send(w)
 
-}
-
-func (c *user_controller) GetById(w http.ResponseWriter, r *http.Request) {
-	user_id := r.Context().Value("user")
-	c.service.GetById(user_id.(string)).Send(w)
 }
 
 func (c *user_controller) Update(w http.ResponseWriter, r *http.Request) {

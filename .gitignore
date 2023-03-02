@@ -1,3 +1,4 @@
 /.env
 public/image/*
 !public/image/default_image.png
+.vscode

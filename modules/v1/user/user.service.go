@@ -15,6 +15,15 @@ func NewService(repo interfaces.UserRepoIF) *user_service {
 
 }
 
+func (s *user_service) GetById(id string) *lib.Response {
+	data, err := s.repo.GetById(id)
+	if err != nil {
+		return lib.NewRes(err.Error(), 400, true)
+	}
+
+	return lib.NewRes(data, 200, false)
+}
+
 func (s *user_service) GetAll() *lib.Response {
 	data, err := s.repo.GetAll()
 	if err != nil {
@@ -38,15 +47,6 @@ func (s *user_service) Add(data *model.User) *lib.Response {
 
 }
 
-func (s *user_service) GetById(uuid string) *lib.Response {
-	data, err := s.repo.GetById(uuid)
-	if err != nil {
-		return lib.NewRes(err.Error(), 400, true)
-	}
-
-	return lib.NewRes(data, 200, false)
-}
-
 func (s *user_service) Update(body *model.User) *lib.Response {
 
 	_, err := s.repo.FindEmail(body.Email)
@@ -67,8 +67,8 @@ func (s *user_service) Update(body *model.User) *lib.Response {
 
 }
 
-func (s *user_service) Delete(uuid string) *lib.Response {
-	data, err := s.repo.Delete(uuid)
+func (s *user_service) Delete(id string) *lib.Response {
+	data, err := s.repo.Delete(id)
 	if err != nil {
 		return lib.NewRes(err.Error(), 400, true)
 	}
