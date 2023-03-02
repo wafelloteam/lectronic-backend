@@ -19,6 +19,11 @@ func NewController(service interfaces.UserServiceIF) *user_controller {
 
 }
 
+func (c *user_controller) GetById(w http.ResponseWriter, r *http.Request) {
+	id := r.Context().Value("user")
+	c.service.GetById(id.(string)).Send(w)
+}
+
 func (c *user_controller) GetAll(w http.ResponseWriter, r *http.Request) {
 	result := c.service.GetAll()
 	result.Send(w)
@@ -44,17 +49,12 @@ func (c *user_controller) Add(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func (c *user_controller) GetById(w http.ResponseWriter, r *http.Request) {
-	user_id := r.Context().Value("user")
-	c.service.GetById(user_id.(string)).Send(w)
-}
-
 func (c *user_controller) Update(w http.ResponseWriter, r *http.Request) {
 
 	var data model.User
 
-	UserID := r.Context().Value("user")
-	data.UserID = (UserID.(string))
+	ID := r.Context().Value("user")
+	data.ID = (ID.(string))
 
 	err := json.NewDecoder(r.Body).Decode(&data)
 	if err != nil {
@@ -82,7 +82,7 @@ func (c *user_controller) Delete(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	result := c.service.Delete(data.UserID)
+	result := c.service.Delete(data.ID)
 	result.Send(w)
 
 }

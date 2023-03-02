@@ -30,7 +30,7 @@ func (s *auth_service) Login(body *model.User) *lib.Response {
 
 	}
 
-	jwt := lib.NewToken(user.UserID, user.Role)
+	jwt := lib.NewToken(user.ID, user.Role)
 	token, err := jwt.CreateToken()
 	if err != nil {
 		return lib.NewRes(err, 501, true)
