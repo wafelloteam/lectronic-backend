@@ -1,0 +1,32 @@
+services:
+  database:
+    image: postgres:15.2
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+
+    volumes:
+      - ./database/postgres/docker-entrypoint-initdb:/docker-entrypoint-initdb.d/
+    networks:
+      - lectronic
+
+      
+  backend-api:
+    image: wafellofazztrack/lectronic-backend
+    depends_on:
+      - database
+    restart: always
+    ports:
+      - "3001:3000"
+    env_file:
+      - .env
+    networks:
+      - lectronic
+
+networks:
+  lectronic:
+    driver: bridge
