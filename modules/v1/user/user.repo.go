@@ -64,7 +64,7 @@ func (r *user_repo) GetById(uuid string) (*model.User, error) {
 }
 
 func (r *user_repo) Update(data *model.User) (*model.User, error) {
-	err := r.database.Model(&model.User{}).Where("user_id = ?", data.UserID).Updates(data).Error
+	err := r.database.Model(&model.User{}).Where("user_id = ?", data.ID).Updates(data).Error
 
 	if err != nil {
 		return nil, err

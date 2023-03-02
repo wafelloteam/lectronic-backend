@@ -4,7 +4,7 @@ import "time"
 
 type History struct {
 	ID          string    `gorm:"type:uuid; primaryKey; default:uuid_generate_v4()" json:"id,omitempty" valid:"-"`
-	UserID      string    `gorm:"foreignKey:UserID;references:UserID" json:"user_id" valid:"-"`
+	UserID      string    `gorm:"foreignKey:ID;references:ID" json:"user_id" valid:"-"`
 	ProductID   string    `json:"product_id" valid:"-"`
 	Name        string    `json:"name" valid:"type(string)"`
 	Description string    `json:"description" valid:"type(string)"`
