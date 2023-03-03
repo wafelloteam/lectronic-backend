@@ -13,6 +13,7 @@ var initCommand = cobra.Command{
 func init() {
 	initCommand.AddCommand(server.ServeCmd)
 	initCommand.AddCommand(orm.MigrateCmd)
+	initCommand.AddCommand(orm.SeedCmd)
 
 }
 
