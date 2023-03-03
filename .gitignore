@@ -2,3 +2,23 @@
 public/image/*
 !public/image/default_image.png
 .vscode
+# for seeding
+!public/image/1.jpg
+!public/image/2.jpg
+!public/image/3.jpg
+!public/image/4.jpg
+!public/image/5.jpg
+!public/image/6.jpg
+!public/image/7.jpg
+!public/image/8.jpg
+!public/image/9.jpg
+!public/image/10.jpg
+!public/image/11.jpg
+!public/image/12.jpg
+!public/image/13.jpg
+!public/image/14.jpg
+!public/image/15.jpg
+!public/image/16.jpg
+!public/image/17.jpg
+!public/image/18.jpg
+
