@@ -15,7 +15,7 @@ type auth_service struct {
 }
 
 type tokenResponse struct {
-	Token string `json:token`
+	Token string `json:"token"`
 }
 
 func NewService(repo interfaces.UserRepoIF) *auth_service {
