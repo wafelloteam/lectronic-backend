@@ -85,3 +85,14 @@ func (r *user_repo) FindEmail(email string) (*model.User, error) {
 
 	return &data, nil
 }
+
+func (r *user_repo) UpdatePassword(id string, data *model.UserUpdatePassword) (*model.UserUpdatePassword, error) {
+	err := r.database.Model(&model.User{}).Where("id = ?", id).Updates(data).Error
+
+	if err != nil {
+		return nil, err
+	}
+	data.Password = ""
+
+	return data, nil
+}

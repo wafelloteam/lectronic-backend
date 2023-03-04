@@ -8,4 +8,6 @@ import (
 type AuthServiceIF interface {
 	Login(user *model.User) *lib.Response
 	Register(user *model.User) *lib.Response
+	ForgetPassword(body *model.UserPassword) *lib.Response
+	UpdatePassword(id string, body *model.UserUpdatePassword) *lib.Response
 }
