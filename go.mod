@@ -17,8 +17,11 @@ require (
 )
 
 require (
-	
-	
+	github.com/antihax/optional v1.0.0 // indirect
+	github.com/golang/protobuf v1.4.2 // indirect
+)
+
+require (
 	github.com/google/uuid v1.3.0
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
