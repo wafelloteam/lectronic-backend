@@ -11,7 +11,7 @@ type Product struct {
 	Price       int64     `json:"price" valid:"type(int64)"`
 	Category    string    `json:"category" valid:"type(string)"`
 	Rating      int64     `gorm:"default:0" json:"rating,omitempty" valid:"-"`
-	Stock       int64     `gorm:"default:0" json:"stock,omitempty" valid:"-"`
+	Stock       int64     `gorm:"default:1" json:"stock,omitempty" valid:"-"`
 	Sold        int64     `gorm:"default:0" json:"sold,omitempty" valid:"-"`
 	Image       string    `json:"image,omitempty" valid:"-"`
 	ImageURL    string    `json:"image_url,omitempty" valid:"-"`
