@@ -7,7 +7,7 @@ type Cart struct {
 	UserID    string    `gorm:"foreignKey:ID;references:ID" json:"user_id" valid:"-"`
 	ProductID string    `gorm:"foreignKey:ID;references:ID" json:"product_id" valid:"-"`
 	Qty       int64     `gorm:"default:1" json:"qty" valid:"type(int)"`
-	IsChecked bool      `gorm:"default:false" json:"is_checked"`
+	IsChecked bool      `json:"is_checked"`
 	CreatedAt time.Time `json:"created_at" valid:"-"`
 	UpdatedAt time.Time `json:"updated_at,omitempty" valid:"-" `
 

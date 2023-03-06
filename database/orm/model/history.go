@@ -13,6 +13,7 @@ type History struct {
 	ImageURL    string    `json:"image_url" valid:"type(string)"`
 	UidImage    string    `json:"uid_image" valid:"type(string)"`
 	Qty         int64     `json:"qty" valid:"type(int)"`
+	Review      string    `json:"review,omitempty" valid:"-"`
 	CreatedAt   time.Time `json:"created_at" valid:"-"`
 	UpdatedAt   time.Time `json:"updated_at,omitempty" valid:"-" `
 
@@ -20,3 +21,5 @@ type History struct {
 }
 
 type Histories []History
+
+type ReviewData []string
