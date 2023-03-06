@@ -7,6 +7,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/wafellofazztrack/lectronic-backend/database/orm/model"
 	"github.com/wafellofazztrack/lectronic-backend/database/orm/seeder"
+	"github.com/wafellofazztrack/lectronic-backend/lib"
 	"gorm.io/gorm"
 )
 
@@ -50,6 +51,10 @@ func Seed(cmd *cobra.Command, args []string) error {
 
 func seedUp(db *gorm.DB) error {
 	var err error
+
+	for i := range seeder.ProductSeed {
+		seeder.ProductSeed[i].Slug = lib.Slug(seeder.ProductSeed[i].Name)
+	}
 
 	var seedModel = []seederData{
 		{

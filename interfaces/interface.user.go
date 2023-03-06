@@ -12,6 +12,7 @@ type UserRepoIF interface {
 	GetById(uuid string) (*model.User, error)
 	Update(data *model.User) (*model.User, error)
 	Delete(uuid string) (*model.User, error)
+	UpdatePassword(id string, data *model.UserUpdatePassword) (*model.UserUpdatePassword, error)
 }
 
 type UserServiceIF interface {

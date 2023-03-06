@@ -18,4 +18,12 @@ type User struct {
 	UpdatedAt   time.Time  `json:"updated_at,omitempty" valid:"-" `
 }
 
+type UserPassword struct {
+	Email string `json:"email" valid:"email"`
+}
+
+type UserUpdatePassword struct {
+	Password string `json:"password,omitempty" valid:"type(string)"`
+}
+
 type Users []User
