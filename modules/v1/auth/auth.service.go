@@ -67,7 +67,7 @@ func (s *auth_service) ForgetPassword(body *model.UserPassword) *lib.Response {
 	if err != nil {
 		return lib.NewRes("Email not found", 401, true)
 	}
-	link := fmt.Sprintf("%s:%s/auth/update-password/%s", os.Getenv("BASE_URL"), os.Getenv("APP_PORT"), data.ID)
+	link := fmt.Sprintf("%s:%s/auth/update-password/%s", os.Getenv("BASE_URL"), os.Getenv("FRONTEND_PORT"), data.ID)
 	message := sendinblue.SendSmtpEmail{
 		Sender: &sendinblue.SendSmtpEmailSender{
 			Name:  "Lectronic",
@@ -99,7 +99,7 @@ func (s *auth_service) ForgetPassword(body *model.UserPassword) *lib.Response {
 	if err != nil {
 		return lib.NewRes(err.Error(), 400, true)
 	}
-	return lib.NewRes("Email sent successfully", 200, false)
+	return lib.NewRes("Email sent successfully, please check your inbox", 200, false)
 }
 
 func (s *auth_service) UpdatePassword(id string, body *model.UserUpdatePassword) *lib.Response {
