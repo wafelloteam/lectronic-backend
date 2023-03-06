@@ -113,7 +113,7 @@ func (r *cart_repo) Payment() (*model.Histories, error) {
 		}
 
 		product.Sold = cart.Product.Sold + 1
-		product.Stock = cart.Product.Stock - 1
+		product.Stock = cart.Product.Stock - cart.Qty
 		err = tx.Model(&product).Where("id = ?", cart.ProductID).Updates(&product).Error
 		if err != nil {
 			return nil, err

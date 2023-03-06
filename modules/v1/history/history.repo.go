@@ -38,7 +38,7 @@ func (r *history_repo) GetById(id string) (*model.History, error) {
 
 func (r *history_repo) AddReview(data *model.History, id string) (*model.History, error) {
 	var history model.History
-	// var product model.Product
+	var product model.Product
 
 	tx := r.database.Begin()
 
@@ -48,7 +48,6 @@ func (r *history_repo) AddReview(data *model.History, id string) (*model.History
 		}
 	}()
 
-	
 	err := tx.Model(&history).Where("id = ?", id).Updates(data).Error
 	if err != nil {
 		return nil, err
@@ -59,6 +58,17 @@ func (r *history_repo) AddReview(data *model.History, id string) (*model.History
 		return nil, err
 	}
 	
+	err = tx.Model(&product).Where("id = ?", history.ProductID).Find(&product).Error
+	if err != nil {
+		return nil, err
+	}
+	
+	// product.Rating = product.Rating + data.Rating
+	// err = tx.Model(&product).Where("id = ?", history.ProductID).Updates(&product).Error
+	// if err != nil {
+	// 	return nil, err
+	// }
+
 	tx.Commit()
 
 	return &history, nil
@@ -68,7 +78,7 @@ func (r *history_repo) GetByProductID(id string) (*model.ReviewData, error) {
 	var history model.History
 	var arr model.ReviewData
 	
-	err := r.database.Model(&history).Select("review").Find(&arr).Error
+	err := r.database.Model(&history).Where("review != ?", "").Select("review").Find(&arr).Error
 	if err != nil {
 		return nil, err
 	}
