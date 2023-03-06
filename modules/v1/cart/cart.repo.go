@@ -17,6 +17,8 @@ func NewRepo(db *gorm.DB) *cart_repo {
 }
 
 func (r *cart_repo) Add(data *model.Cart) (*model.Cart, error) {
+	data.IsChecked = false
+	data.Qty = 1
 	err := r.database.Create(data).Error
 	if err != nil {
 		return nil, err
@@ -53,6 +55,7 @@ func (r *cart_repo) Delete(id string) (*model.Cart, error) {
 }
 
 func (r *cart_repo) Checkout(data *model.Cart) (*model.Cart, error) {
+	data.IsChecked = true
 	err := r.database.Model(&model.Cart{}).Where("id = ?", data.ID).Preload(clause.Associations).Updates(data).Error
 	if err != nil {
 		return nil, err
