@@ -16,6 +16,6 @@ func NewRoute(rt *mux.Router, db *gorm.DB) {
 	route.HandleFunc("/login", controller.Login).Methods("POST")
 	route.HandleFunc("/register", controller.Register).Methods("POST")
 	route.HandleFunc("/forget-password", controller.ForgetPassword).Methods("POST")
-	route.HandleFunc("/update-password/{id}", controller.UpdatePassword).Methods("POST")
+	route.HandleFunc("/update-password/{id}", controller.UpdatePassword).Methods("PUT")
 
 }

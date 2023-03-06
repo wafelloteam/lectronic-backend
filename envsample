@@ -8,3 +8,4 @@ JWT_KEY=secret
 BASE_URL=http://localhost
 # sendinblue
 SIB_KEY=xkeysib-foobar
+FRONTEND_PORT=3000
