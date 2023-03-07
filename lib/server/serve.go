@@ -42,8 +42,8 @@ func serve(cmd *cobra.Command, args []string) error {
 	}
 
 	var address string = "0.0.0.0:8080"
-	if PORT := os.Getenv("PORT"); PORT != "" {
-		address = "0.0.0.0:" + PORT
+	if appPort := os.Getenv("APP_PORT"); appPort != "" {
+		address = ":" + appPort
 	}
 
 	corsConfig := corsHandler()
