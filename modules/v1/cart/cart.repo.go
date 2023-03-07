@@ -19,7 +19,6 @@ func NewRepo(db *gorm.DB) *cart_repo {
 
 func (r *cart_repo) Add(data *model.Cart) (*model.Cart, error) {
 	data.IsChecked = false
-	data.Qty = 1
 	err := r.database.Create(data).Error
 	if err != nil {
 		return nil, err
