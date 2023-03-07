@@ -101,7 +101,7 @@ func (r *product_repo) Sort(by string, order string) (*model.Products, error) {
 	var data model.Products
 
 	orderQuery := fmt.Sprintf("%s %s", by, order)
-	err := r.database.Order(orderQuery).Limit(8).Find(&data).Error
+	err := r.database.Order(orderQuery).Limit(9).Find(&data).Error
 	if err != nil {
 		return nil, err
 	}

@@ -3,6 +3,7 @@ package cart
 import (
 	"github.com/google/uuid"
 	"github.com/wafellofazztrack/lectronic-backend/database/orm/model"
+	"github.com/wafellofazztrack/lectronic-backend/lib"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 )
@@ -35,6 +36,10 @@ func (r *cart_repo) GetAll(userID string) (*model.Carts, error) {
 	err := r.database.Where("user_id = ?", userID).Preload(clause.Associations).Find(&data).Error
 	if err != nil {
 		return nil, err
+	}
+
+	for i := 0; i < len(data); i++ {
+		data[i].Product.Image = lib.ImageReturn(data[i].Product.Image)
 	}
 
 	return &data, nil
