@@ -1,11 +1,12 @@
-<h1 align="center">
+<h1 align="center" >
   Lectronic
 </h1>
 
 <p align="center" >is a marketplace project for selling electronic products, such as headsets, air conditioners, and other electronic goods. This project aims to train cooperation, communication, and collaboration as a team by using the Agile Scrum framework and Trello tools for task management..<p/>
-<h4 align="center">
-  By: Wafello Team
-</h4>
+<p align="center">
+    Visit <a href="https://lectronic.myvehicle-rent.site/" target="blank">Our Website</a>
+    · By Wafello Team
+</p>
 
 
 ## ⚡ Lectronic Feature
@@ -56,9 +57,9 @@ go run . serve
 🌟 You are all set!
 
 ##  Contributor 
-- rizaldifauzi44@gmail.com
-- ahmadsaifudinardhiansyah@gmail.com
-- ardhinataangga@gmail.com
+- [Rizaldi Fauzi](https://github.com/rfauzi44): as Project Manager
+- [Ahmad Saifudin Ardhiansyah](https://github.com/ardhisaif): as Developer
+- [Muhammad Angga Ardhinata](https://github.com/AnggaArdhinata): as Developer
 
 Check out this for [Postman Documentation](https://www.postman.com/wafellofazztrack)
 
