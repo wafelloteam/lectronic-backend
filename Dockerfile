@@ -5,8 +5,8 @@ WORKDIR /app
 COPY . .
 
 RUN go mod tidy
-RUN go build -v -o /app/lectronic-backend
+RUN go build -v -o /app/lectronic-api
 
 EXPOSE 3000
-ENTRYPOINT [ "/app/lectronic"]
+ENTRYPOINT [ "/app/lectronic-api"]
 CMD [ "serve" ]
