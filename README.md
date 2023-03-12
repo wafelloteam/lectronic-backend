@@ -1,26 +1,31 @@
-<h1 align="center" >
-  Lectronic
-</h1>
+# Lectronic
 
-<p align="center" >is a marketplace project for selling electronic products, such as headsets, air conditioners, and other electronic goods. This project aims to train cooperation, communication, and collaboration as a team by using the Agile Scrum framework and Trello tools for task management..<p/>
-<p align="center">
-    Visit <a href="https://lectronic.myvehicle-rent.site/" target="blank">Our Website</a>
-    · By Wafello Team
-</p>
+Lectronic is a marketplace for selling electronic products, such as phones, laptops, headset and other electronic goods. This RESTful API was built using Golang and SQL, GORM for ORM and dependency injection as modularization. Continous deployment with combination of Docker Compose, Github Action, and Docker Hub.
 
+## 🔥 Showcase
 
-## ⚡ Lectronic Feature
+- [Web Client Repository](https://github.com/wafellofazztrack/lectronic-frontend)
+- [Docker Image](https://hub.docker.com/r/rfauzi/lectronic-api)
+- [Postman Docs](https://documenter.getpostman.com/view/25042327/2s93JtQPYk)
+
+## ⚡ Features
+
 - Authentication & Authorization using JWT
-- Can get all product without authentication
+- CRUD for all modules
 - Manage Product for admin role
 - Checkout & Payment for user role
-- Get History order 
+- Get History order
+- Database migrate and seed
+- Continous deployment with Github Action and Docker Hub
 
 ## 💻 Built with
--   [Golang](https://go.dev/): programming language
--   [Gorilla/mux](https://github.com/gorilla/mux): for handle http request
--   [Postgres](https://www.postgresql.org/): for DBMS
--   [GORM](https://gorm.io/): ORM library for Golang
+
+- [Gorilla MUX](https://github.com/gorilla/mux) for handling HTTP requests and responses
+- [GORM](https://github.com/go-gorm/gorm) for ORM library
+- [JWT](https://github.com/golang-jwt/jwt) for authentication and authorization
+- [Postgres](https://github.com/postgres/postgres) for DBMS
+- [Sendinblue](https://github.com/sendinblue/APIv3-go-library) for sending emails
+- [Docker](https://github.com/docker) for deployment
 
 ## 🛠️ Installation Steps
 
@@ -56,12 +61,8 @@ go run . serve
 
 🌟 You are all set!
 
-##  Contributor 
+## Contributor
+
 - [Rizaldi Fauzi](https://github.com/rfauzi44): as Project Manager
 - [Ahmad Saifudin Ardhiansyah](https://github.com/ardhisaif): as Developer
 - [Muhammad Angga Ardhinata](https://github.com/AnggaArdhinata): as Developer
-
-Check out this for [Postman Documentation](https://www.postman.com/wafellofazztrack)
-
-
-
