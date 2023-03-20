@@ -1,32 +1,30 @@
 services:
   database:
-    image: postgres:15.2
-    restart: always
+    image: postgres:latest
     ports:
       - "5433:5432"
     environment:
       - POSTGRES_DB=${DB_NAME}
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASS}
-
     volumes:
       - ./database/postgres/docker-entrypoint-initdb:/docker-entrypoint-initdb.d/
     networks:
-      - lectronic
+      - lectronic-networks
 
       
   backend-api:
-    image: wafellofazztrack/lectronic-backend
+    image: rfauzi/lectronic-api
     depends_on:
       - database
-    restart: always
+    restart: unless-stopped
     ports:
       - "3001:3000"
     env_file:
       - .env
     networks:
-      - lectronic
+      - lectronic-networks
 
 networks:
-  lectronic:
+  lectronic-networks:
     driver: bridge
