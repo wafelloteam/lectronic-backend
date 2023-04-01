@@ -29,6 +29,11 @@ func NewApp() (*mux.Router, error) {
 	cart.NewRoute(mainRoute, db)
 	history.NewRoute(mainRoute, db)
 
+	mainRoute.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/html")
+		w.Write([]byte("Hello World! This is lectronic-api. You can check Postman Documentation <a href=\"https://documenter.getpostman.com/view/25042327/2s93JtQPYk\">here</a>"))
+	})
+
 	return mainRoute, nil
 
 }
