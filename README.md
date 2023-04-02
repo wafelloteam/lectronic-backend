@@ -50,7 +50,7 @@ go run . migrate -u
 4. Seed up
 
 ```bash
-go run . seed
+go run . seed -u
 ```
 
 5. Run the app
