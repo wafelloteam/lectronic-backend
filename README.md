@@ -1,6 +1,6 @@
 # Lectronic
 
-Lectronic is a marketplace for selling electronic products, such as phones, laptops, headset and other electronic goods. This RESTful API was built using Golang, PostgreSQL, GORM for ORM, and dependency injection as modularization. Continous deployment with combination of Docker Compose, Github Action, and Docker Hub.
+Lectronic is a marketplace for selling electronic products, such as phones, laptops, headset, and other electronic goods. This RESTful API was built using Golang, PostgreSQL, GORM, and dependency injection as modularization. Continous deployment with Docker Compose, Github Action, and Docker Hub.
 
 ## 🔥 Showcase
 
