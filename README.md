@@ -24,7 +24,7 @@ Lectronic is a marketplace for selling electronic products, such as phones, lapt
 - [GORM](https://github.com/go-gorm/gorm) for ORM library
 - [JWT](https://github.com/golang-jwt/jwt) for authentication and authorization
 - [Postgres](https://github.com/postgres/postgres) for DBMS
-- [Sendinblue](https://github.com/sendinblue/APIv3-go-library) for sending emails
+- [Sendgrid](https://github.com/sendgrid/sendgrid-go) for sending emails
 - [Docker](https://github.com/docker) for deployment
 
 ## 🛠️ Installation Steps
